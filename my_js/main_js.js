@@ -148,11 +148,8 @@ window.onload=function(){
 				iconHeader.forEach(function(e){
 					e.disabled=true
 				})
-				var login=document.querySelector('.login-button')
-				login.addEventListener('click',function(){
-					
-					if(user.value=='' || pass.value==''){
-						
+				function enterLogin(){
+					if(user.value=='' || pass.value==''){		
 						warningLogin.style.display='block'
 						errorLogin.style.display='none'
 					}
@@ -177,7 +174,10 @@ window.onload=function(){
 							console.log(user.value, pass.value)
 						}
 					}
-				})
+				}
+				var login=document.querySelector('.login-button')
+				login.addEventListener('click',enterLogin)
+				
 				closeLogin.addEventListener('click',function(){
 					loginBox.style.display='none'
 					filterLogin.style.display='none'
