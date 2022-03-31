@@ -100,6 +100,7 @@ login.addEventListener('click',function(){
     let mainStatistical=document.querySelector('.mainStatistical')
     let mainCustomerManagement=document.querySelector('.mainCM')
     let mainProduct=document.querySelector('.mainProduct')
+    let mainOrder=document.querySelector('.mainOrder')
     for(let i=0; i<listMenu.length; i++){
         listMenu[i].addEventListener('mouseover',function(){
             if(i==4){
@@ -120,6 +121,12 @@ login.addEventListener('click',function(){
             }
             else{
                 mainProduct.style.display='none'
+            }
+            if(i==1){
+                mainOrder.style.display='block'
+            }
+            else{
+                mainOrder.style.display='none'
             }
 
         })
