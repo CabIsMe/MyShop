@@ -294,7 +294,6 @@ body::-webkit-scrollbar-track{
   align-items: center;
   padding-left: 0;
   margin: auto 0 auto 0;
-  font-size: 200%;
 }
 
 .icon-button-header {
@@ -308,7 +307,7 @@ body::-webkit-scrollbar-track{
   transform: translateY(1px);
 }
 
-#icon-search-btn, #icon-person-btn, #icon-bag-btn {
+#icon-search-btn, #icon-person-btn, #icon-bag-btn, .iconLogged button{
   background: none;
   opacity: 1;
   border: none;
@@ -319,6 +318,12 @@ body::-webkit-scrollbar-track{
   padding: 0;
   font-size: 26px;
   font-weight: bolder;
+}
+#icon-person-btn{
+  /* display: none; */
+}
+.iconCart{
+  display: none;
 }
 #icon-bag-btn a{
   color: #fff;
@@ -388,6 +393,59 @@ form.search-form button i{
   font-size: 16px;
   padding: 2px 3px;
 }
+/*=== LOGGED */
+.iconLogged{
+  position: relative;
+  font-family: sans-serif;
+  display: none;
+}
+.iconLogged button:hover{
+  transform: translateY(1px);
+}
+.iconLogged ul{
+  /* display: none; */
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  width: 140px;
+  background: #ccc;
+  padding: 5px 8px;
+  border-radius: 10px;
+  top: 45px;
+  left: 10px;
+}
+/* .iconLogged ul::before{
+  position: absolute;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: #ccc;
+  top: -8px;
+  left: 15px;
+  transform: rotate(45deg);
+} */
+.iconLogged ul li:first-child{
+  margin-top: 5px;
+}
+.iconLogged ul li{
+  list-style: none;
+  padding: 5px;
+  padding-bottom: 3px;
+  z-index: 1;
+}
+
+.iconLogged ul a{
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+
+.iconLogged ul li:hover{
+  box-shadow: 0 1px 3px rgb(45, 45, 45);
+  border-radius: 6px;
+}
+
+/* === End Logged */
 /* Clear floats */
 
 
@@ -404,7 +462,7 @@ form.search-form button i{
   align-items: center;
   position: fixed;
   right: 10px;
-  z-index: 10;
+  z-index: 2;
   cursor: pointer;
   color: #000;
   text-decoration: none;
@@ -418,34 +476,32 @@ form.search-form button i{
   list-style: none;
   /* display: none; */
   position: absolute;
-  font-size: 20px;
-  width: 60px;
-  background-color: #474747;
+  width: 80px;
+  background-color: #ccc;
   /* color: #333; */
-  top: 58px;
+  top: 40px;
   left: 10px;
-  border-radius: 5px;
-  padding: 3px;
+  border-radius: 10px;
+  padding: 4px 8px;
 }
 .hideAccount{
   display: none;
 }
 #login_signup li {
-  padding-bottom: 4px;
-  padding-left: 2px;
+  padding: 1px 6px;
 }
 #login_signup li button {
 	background: none;
   text-decoration: none;
-  color: #FFFFFF;
-  font-weight: 600;
-}
-#login_signup button {
+  color: #000;
+  font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   border: none;
 }
-#login_signup button:hover {
-  transform: scaleX(1.1) scaleY(1.1);
+#login_signup li:hover {
+  box-shadow: 0 1px 3px rgb(46, 46, 46);
+  border-radius: 6px;
 }
 
 #login-form{
@@ -578,7 +634,7 @@ form.search-form button i{
   display: none;
 }
 .filter-login{
-  z-index: 1;
+  z-index: 2;
   display: none;
   position: absolute;
   left: 0;
@@ -686,6 +742,117 @@ form.search-form button i{
 }
 /* ==============================End sign up =============================== */
 
+/*    boxChange Info  */
+.boxChange{
+  font-family: sans-serif;
+  font-weight: 200;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  background: #fff;
+  padding: 30px 50px;
+  border-radius: 20px;
+  display: none;
+}
+.boxChange h2{
+  margin-bottom: 20px;
+}
+.boxChange> ion-icon{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.boxChange div{
+  padding: 20px 0;
+  padding-left: 5px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 4fr 1fr;
+  grid-gap: 10px;
+  border-bottom: 1px solid #ccc;
+  white-space: nowrap;
+}
+.boxChange .saveChange{
+  outline: none;
+  border: none;
+  background: #fff;
+  padding: 6px 15px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  box-shadow: 0 2px 8px rgb(71, 71, 71);
+  border-radius: 8px;
+}
+.boxChange .saveChange:hover{
+  box-shadow: 0 2px 10px #333;
+}
+.boxChange .nameChange{
+  border-top: 1px solid #333;
+}
+.boxChange .emailChange .boxChangeEmail{
+  white-space: nowrap;
+  font-size: 14px;
+}
+.boxChange .emailChange .boxChangeEmail p{
+  margin: 3px;
+}
+.boxChange .emailChange .boxChangeEmail p input{
+  outline: none;
+  
+}
+.boxChange .passChange{
+  border-bottom: none;
+}
+
+.boxChange .passChange .boxChangePass{
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  white-space: nowrap;
+  animation: 0.5s;
+  display: none;
+}
+
+.boxChange .passChange .boxChangePass p{
+  display: flex;
+  justify-content: space-between;
+  margin: 3px;
+}
+.boxChange input{
+  text-align: start;
+  outline: none;
+  padding: 1px 4px;
+  white-space: normal;
+}
+.boxChange .passChange input{
+  margin-left: 15px;
+  padding: 1px 4px;
+}
+.boxChange div span{
+  font-size: 16px;
+}
+.boxChange div .titleChange{
+  font-weight: bold;
+}
+.boxChange div button{
+  outline: none;
+  border: none;
+  background: none;
+  color: var(--success-color);
+  font-size: 15px;
+  cursor: pointer;
+}
+.confirmChange{
+  display: none;
+  
+}
+/*    End of boxChange Info */
 
 /*          ---------cart---------------------- */
 #icon-cart{
@@ -801,14 +968,15 @@ form.search-form button i{
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 0;
   border-radius: 3px;
   height: 100%;
   background: linear-gradient(to left, rgba(0, 0, 0,0.2),transparent);
-  transition: 0.5s;
+  transition: ease 1s;
 }
 #loadMore:hover a::before{
-  transform: translateX(100%);
+  /* transform: translateX(100%); */
+  width: 100%;
   opacity: 0;
 }
 /* End of Load more */
