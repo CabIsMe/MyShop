@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title >CAB Shop</title>
-	<link rel="title icon" href="Logo-byOanh.png">
+	<link rel="title icon" href="my_png/Logo-byOanh.png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -12,6 +13,7 @@
 	<script src="https://kit.fontawesome.com/0e7ed669fa.js" crossorigin="anonymous"></script>	
 	<script type="text/javascript" src="my_js/main_js.js" ></script>
 	<link rel="stylesheet" type="text/css" href="my_css/DinhDangTask1.css"/>
+
 	<!-- smoothy scroll  -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	
@@ -25,7 +27,7 @@
 	<div id="header">
 		<nav class="container">
 			<a  id="logo" href="#home">
-				<img src="Logo-byOanh.png" alt="CAB Shop">				
+				<img src="my_png/Logo-byOanh.png" alt="CAB Shop">				
 			</a>
 			
 			<ul id="main-menu">
@@ -40,6 +42,7 @@
 
 					</ul>
 				</li>
+				askdjhasdoasjhdl
 				<li class="Option"><a class="style-menu" href="#bot" >BOT</a>
 					<ul class="bot-menu sub-menu">
 						<li><a href="#" onclick="notification_option()">Skirts</a></li>
@@ -63,9 +66,16 @@
 				<div class="icon-button-header">
 					<button id="icon-person-btn" ><ion-icon name="person-outline"></ion-icon></button>
 					<ul id="login_signup" class="hideAccount">
-						<li style="border-bottom: 1.3px solid #333 ;"><button type="button" id="Login" 
-							>Log in</button></li>
+						<li><button type="button" id="Login">Log in</button></li>
 						<li><button type="button"  id="Signup">Sign up</button></li>
+					</ul>
+				</div>
+				<div class="iconLogged">
+					<button><ion-icon name="person"></ion-icon></button>
+					<ul class="menuLogged hide">
+						<li class="changeInfor"><a href="#">Thay đổi thông tin</a></li>
+						<li class="history"><a href="#">Lịch sử</a></li>
+						<li class="logOut"><a href="#">Đăng xuất</a></li>
 					</ul>
 				</div>
 				<div class="icon-button-header">
@@ -77,7 +87,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="icon-button-header">
+				<div class="icon-button-header iconCart">
 					<button id="icon-bag-btn"><a href="Cart.html"><ion-icon name="cart-outline"></ion-icon></a></button>
 					<small id="icon-cart">
 						0
@@ -106,7 +116,7 @@
 		<buttton id="close-login">
 			<span><i class="fa-solid fa-xmark"></i></span>
 		</buttton>
-		<img class="avtLogin" src="avatar.png" >
+		<img class="avtLogin" src="my_png/avatar.png" >
 		<h1>LOGIN</h1>
 		<form action="">
 			<p>Username</p>
@@ -124,8 +134,7 @@
 	</div>
 
 
-	<div class="filter-login">
-	</div>
+	<div class="filter-login"></div>
 	<!-- Sign up -->
 	<div id="signup-form">
 		<buttton id="close-signup" >
@@ -169,8 +178,63 @@
 	</article>
 	<!--  -->
 
-	
+	<!-- Box Change Info -->
+	<div class="boxChange">
 
+		<h2>Thông tin của bạn: </h2>
+		<ion-icon class="closeBoxChange" name="close"></ion-icon>
+		<div class="nameChange">
+			<span class="titleChange"><i class="fa-solid fa-signature"></i>Tên</span >
+			<span class="originalInfo">Nguyễn Đăng Bắc</span>
+			<button><i class="fa-solid fa-pencil" style="font-size: 14px;"></i> Chỉnh sửa</button>
+		</div>
+		<div class="addressChange">
+			<span class="titleChange"><i class="fa-solid fa-location-dot"></i> Địa chỉ</span >
+			<span class="originalInfo">Q9, TP.HCM</span>
+			<button><i class="fa-solid fa-pencil" style="font-size: 14px;"></i> Chỉnh sửa</button>
+		</div>
+		<div class="phoneChange">
+			<span class="titleChange"><ion-icon name="call"></ion-icon> Số điện thoại</span >
+			<span class="originalInfo">0982777935</span>
+			<button><i class="fa-solid fa-pencil" style="font-size: 14px;"></i> Chỉnh sửa</button>
+		</div>
+		<div class="emailChange">
+			<span class="titleChange"><i class="fa-solid fa-at"></i> Email</span >
+			<!-- <span class="originalInfo">dangbac872001@gmail.com</span> -->
+			<span class="boxChangeEmail">
+				<p>
+					<span>Email mới</span> 
+					<input type="text" name="" id="">
+				</p>
+				<p>
+					<input type="text" placeholder="Nhập mã xác thực" value="">
+					<span><button>Lấy mã</button></span>
+				</p>
+			</span>
+			<button><i class="fa-solid fa-pencil" style="font-size: 14px;"></i> Chỉnh sửa</button>
+		</div>
+		<div class="passChange">
+			<span class="titleChange"><i class="fa-solid fa-lock"></i> Mật khẩu</span >	
+			<span class="secretPass">*********</span>
+			<span class="boxChangePass">
+				<p>
+					<span>Mật khẩu hiện tại</span> 
+					<input type="password" name="" id="">
+				</p>
+				<p>
+					<span>Mật khẩu mới</span> 
+					<input type="password" name="" id="">
+				</p>
+				<p>
+					<span>Nhập lại mật khẩu mới</span> 
+					<input type="password" name="" id="">
+				</p>
+			</span>
+			<button><i class="fa-solid fa-pencil" style="font-size: 14px;"></i> Chỉnh sửa</button>			
+		</div>
+		<button class="saveChange">Lưu thay đổi</button>
+	</div>
+	<!-- End of Change Info -->
 
 	<section id="home">
 		<div class="header-object">
@@ -178,6 +242,26 @@
 		</div>
 		
 		<div class="container-object" >
+			<div class="items">
+				<figure>
+					<img src="my_image/10-removebg-preview.png" alt="" class="img-items">
+					<p>Giá tiền</p>
+					<a href="#"><p>New outfit8</p></a>
+				</figure>
+				<div class="buy-item">
+					<h2>BUY NOW</h2>
+				</div>
+			</div>
+			<div class="items">
+				<figure>
+					<img src="my_image/10-removebg-preview.png" alt="" class="img-items">
+					<p>Giá tiền</p>
+					<a href="#"><p>New outfit8</p></a>
+				</figure>
+				<div class="buy-item">
+					<h2>BUY NOW</h2>
+				</div>
+			</div>
 			<div class="items">
 				<figure>
 					<img src="my_image/10-removebg-preview.png" alt="" class="img-items">

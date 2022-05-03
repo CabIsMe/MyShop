@@ -658,7 +658,8 @@ body{
     background: var(--white);
 }
 .mainProduct .tableProduct table tbody::-webkit-scrollbar-thumb{
-    background: rgba(224, 65, 44,0.5);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 .mainProduct .tableProduct table tbody tr{
     width: 100%;
@@ -678,7 +679,7 @@ body{
     padding-left: 10px;
 }
 .mainProduct .tableProduct table tbody tr td:nth-child(5){
-    background: var(--pink);
+    background: rgb(201, 201, 201);
     border-bottom: 3px solid transparent;
 }
 .mainProduct .tableProduct table tr td:nth-child(6){

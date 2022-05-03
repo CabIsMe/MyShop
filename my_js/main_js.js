@@ -105,6 +105,8 @@ window.onload=function(){
 	
 	var iconAccount=document.getElementById('icon-person-btn')
 	var menuAccount=document.getElementById('login_signup')
+	let iconLogged=document.querySelector('.iconLogged')
+	let iconCart=document.querySelector('.iconCart')
 	let controlIconAccount=0
 	iconAccount.addEventListener('click',getClick)
 	function getClick(){
@@ -139,11 +141,13 @@ window.onload=function(){
 			var signupBox=document.getElementById('signup-form')
 			var loginBox = document.getElementById("login-form");
 			chooseLogin.addEventListener('click',function(){
+				
 				loginBox.style.display="block";
 				menuAccount.classList.add('hideAccount')
 				resetFormLogin()
 				filterLogin.style.display='block'
 				let closeLogin=document.getElementById('close-login')
+				// let iconUser=document.querySelector('.iconUser')
 				controlIconAccount=1
 				iconHeader.forEach(function(e){
 					e.disabled=true
@@ -155,23 +159,26 @@ window.onload=function(){
 					}
 					else{
 						warningLogin.style.display='none'
-						if(user.value=="n19dccn018@student.ptithcm.edu.vn" && pass.value!="nguyendangbac"){
+						if(user.value=="n19dccn018@student.ptithcm.edu.vn" && pass.value=="xxx"){
 							errorLogin.style.display='none'
 							loading.style.display='block'
 							console.log(2)
 							setTimeout(function(){
 								loginBox.style.display='none'
 								filterLogin.style.display='none'
+								iconAccount.style.display='none'
+								iconLogged.style.display='block'
+								iconCart.style.display='block'
 								controlIconAccount=0
 								iconHeader.forEach(function(e){
 									e.disabled=false
 								})
-							},2000)
+							},200)
+							
 							
 						}
 						else{
 							errorLogin.style.display='block'
-							console.log(user.value, pass.value)
 						}
 					}
 				}
@@ -235,9 +242,73 @@ window.onload=function(){
 		}
 	}
 
-	// cancelButton(menuAccount)
 // end of icon account
 
+// =======Logged
+	iconLogged.addEventListener('click',function(){
+		document.querySelector('.menuLogged').classList.toggle('hide')
+		document.querySelector('.iconLogged .logOut').addEventListener('click',function(){
+			let logOUtCofirm=confirm('Are you sure?')
+			if(logOUtCofirm==true){
+				location.href='index.html'
+			}
+			
+		})
+		document.querySelector('.iconLogged .changeInfor').addEventListener('click',function(){
+			let boxChange=document.querySelector('.boxChange')
+			boxChange.style.display='block'
+			filterLogin.style.display='block'
+			// Change Info
+			let changeInfo =document.querySelectorAll('.boxChange div button')
+			let originalInfo=document.querySelectorAll('.boxChange .originalInfo')
+			let valueInputs=new Array(changeInfo.length)
+			// let inputElement=document.createElement('input')
+			
+			for(let i=0; i<changeInfo.length; i++){
+				valueInputs[i]=document.createElement('input')
+				changeInfo[i].addEventListener('click',function(){
+					if(i==4){
+						document.querySelector('.passChange .secretPass').style.display='none'
+						setTimeout(function(){
+							document.querySelector('.boxChangePass').style.display='block'
+							document.querySelector('.passChange>button:first-child').style.display='none'
+						},200)
+					}
+					else{
+						valueInputs[i].type='text'
+						valueInputs[i].value=originalInfo[i].innerHTML
+						originalInfo[i].parentNode.replaceChild(valueInputs[i],originalInfo[i])
+			
+					}
+					document.querySelector('.saveChange').addEventListener('click',function(){
+						originalInfo[i].innerHTML=valueInputs[i].value
+						valueInputs[i].parentNode.replaceChild(originalInfo[i],valueInputs[i])
+						boxChange.style.display='none'
+						filterLogin.style.display='none'
+					})
+					document.querySelector('.closeBoxChange').addEventListener('click',function(){
+						originalInfo[i].innerHTML=valueInputs[i].value
+						valueInputs[i].parentNode.replaceChild(originalInfo[i],valueInputs[i])
+						boxChange.style.display='none'
+						filterLogin.style.display='none'
+					})
+				})
+			}
+			document.querySelector('.saveChange').addEventListener('click',function(){
+				boxChange.style.display='none'
+				filterLogin.style.display='none'
+			})
+			document.querySelector('.closeBoxChange').addEventListener('click',function(){
+				boxChange.style.display='none'
+				filterLogin.style.display='none'
+			})
+			
+			// End of change Info
+		})
+	})
+
+	
+// =======End of Logged
 
 	
 	
