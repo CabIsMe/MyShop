@@ -505,70 +505,124 @@ body{
     display: none;
 }
 .mainProduct .topMainProduct{
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    height: 70px;
-    align-items: center;
+    width: 60%;
     margin: 0 auto;
-    
-}
-.mainProduct .topMainProduct div{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-    padding: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-image: linear-gradient(to right, var(--white),var(--black2) ,var(--white));
+    justify-content: space-between;
+    color: white;
+    font-weight: 600;
+}
+.mainProduct .topMainProduct .addProduct{
+    padding: 10px 35px;
+    box-shadow: 0 0 10px #ccc;
+    background: rgb(106, 181, 238);
+    border-radius: 15px;  
     cursor: pointer;
 }
+.mainProduct .topMainProduct .searchProduct{
+    position: relative;
+}
+.searchProduct_Input input{
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 0;
+    font-size: 18px;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    /* box-shadow: 0 0 3px #ccc; */
+    border: 1px solid #ccc;
+    height: 40px;
+    transition: ease-in-out 1s;
+}
+.searchProduct_Icon i{
+    position: absolute;
+    right: 300px; 
+    top: -2px;
+    transition: ease-in-out 1s;
+    cursor: pointer;
+}
+.mainProduct .topMainProduct .searchProduct i{
+    padding: 10px 25px;
+    /* box-shadow: 0 0 10px #ccc; */
+    background: rgb(106, 181, 238);
+    /* border-radius: 15px;  */
+    transform: translate(100%, 2px);
+}
+.mainProduct .topMainProduct .searchProduct:hover .searchProduct_Input input{
+    width: 300px;
+}
+.mainProduct .topMainProduct .searchProduct:hover .searchProduct_Icon i{
+    right: 0;
+}
+
 .mainProduct .topMainProduct div i{
     font-size: 20px;
 }
-.mainProduct .topMainProduct div:hover i{
-    color: var(--white);
-}
+
 .mainProduct .topMainProduct div:hover{
     opacity: 0.9;
 }
+
 /* boxEdit */
 .mainProduct .boxEditProduct{
     width: 90%;
-    height: 150px;
-    margin: 25px auto;
+    /* height: 0; */
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 35px 0;
+    padding: 10px 0;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,0.1);
     border-radius: 20px;
+    /* display: none; */
+}
+.mainProduct .boxEditProduct input[type='text']{
+    width: 250px;
+}
+.mainProduct .boxEditProduct >:nth-child(1),
+.mainProduct .boxEditProduct >:nth-child(2),
+.mainProduct .boxEditProduct >:nth-child(3)
+{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.mainProduct .nameProduct,
+.mainProduct .idProduct,
+.mainProduct .numProduct,
+.mainProduct .priceProduct{
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
 }
 .mainProduct .boxEditProduct .topBoxEditProduct input{
-    width: 200px;
+    
     padding: 3px 5px;
     font-size: 16px;
     outline: none;
 }
 .mainProduct .boxEditProduct .botBoxEditProduct input[type="text"]{
-    width: 100px;
+    
     padding: 3px 5px;
     font-size: 16px;
     outline: none;
 }
 .mainProduct .boxEditProduct .topBoxEditProduct, .botBoxEditProduct {
-    width: 80%; 
+    
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     font-weight: 500;
 }
-.boxEditProduct .imgProduct input{
-    width: 90px;
+.endBoxEditProduct button{
+    outline: none;
+    padding: 3px 13px;
+    cursor: pointer;
 }
 /* End of boxEdit */
 
@@ -576,6 +630,7 @@ body{
     width: 90%;
     position: relative;
     margin: auto;
+    height: auto;
 }
 .mainProduct .tableProduct .menuTypeProduct{
     width: 200px;
@@ -833,15 +888,30 @@ body{
     position: relative;
     transition: 0.5s;
     margin: auto;
+    
 }
 .cardCustomer:hover{
     height: 170px;
 }
 .cardCustomer:hover .extendInfo{
     top: 70px;
-    opacity: 100%;
+    opacity: 100%;   
 }
 
+.cardCustomer .extendInfo .mail span{
+    width: 160px;
+    overflow: hidden;
+}
+.changeSize{
+    font-size: 12px;
+}
+.cardCustomer .extendInfo .mail, .cardCustomer .extendInfo .address{
+    display: flex;
+}
+.cardCustomer .extendInfo .mail i, .cardCustomer .extendInfo .address i{
+    transform: translateY(2px);
+    margin-right: 2px;
+}
 .cardCustomer .mainNameCus{
     display: flex;
     margin-bottom: 20px;
@@ -871,14 +941,14 @@ body{
     position: absolute;
     top: 0;
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 .extendInfo i{
     color: var(--blue);
 }
 .address, .mail, .call{
     color: var(--black1);
-    white-space: normal;
+    /* white-space: normal; */
     margin-bottom: 15px;
 }
                 /* =====THỐNG KÊ===== */
@@ -1044,10 +1114,13 @@ body{
     width: 100%;
     display: table;
     table-layout: fixed;
+    background: var(--blue);
+    
 }
 
 .details .recentOrders table thead td{
     font-weight: 600;
+    color: white;
 }
 
 .details .recentOrders table  tr{

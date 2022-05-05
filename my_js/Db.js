@@ -90,10 +90,32 @@ login.addEventListener('click',function(){
         //     })
         // }
     })
+    let inputSearchProduct=document.querySelector('.searchProduct_Input input')
+    let iconSearchProduct=document.querySelector('.searchProduct_Icon i')
+
+    iconSearchProduct.addEventListener('click',function(){
+        iconSearchProduct.style.right=0
+        inputSearchProduct.style.width='300px'
+    })
+    inputSearchProduct.addEventListener('keypress',function(){
+        iconSearchProduct.style.right=0
+        inputSearchProduct.style.width='300px'
+        
+    })
 
 // End of Product Management
 
-
+// Customer Managerment
+    mailCustomer=document.querySelectorAll('.cardCustomer .extendInfo .mail span')
+    addressCustome=document.querySelectorAll('.cardCustomer .extendInfo .address span')
+    for(let i=0;i< mailCustomer.length; i++){
+        // if(mailCustomer[i].clientWidth > '160px'){
+        //     // mailCustomer.classList.add('changeSize')
+        //     console.log()
+        // }
+        console.log("cd"+ mailCustomer[i].style.width)
+    }
+// End o fCustomer Managerment
 
 // Statistical : Thống kê
 
