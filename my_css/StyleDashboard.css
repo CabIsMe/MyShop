@@ -190,6 +190,7 @@ body{
 #data{
     flex-grow: 1;
     position: relative;
+    overflow: hidden;
 }
 #data .admin{
     /* text-align: center; */
@@ -496,7 +497,147 @@ body{
 
 /* =======End QL Đơn Hàng========= */
 
+.mainTypeProduct{
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 30px;
+    display: grid;
+    grid-template-rows: 0.6fr 2fr 5fr;
+    grid-gap: 10px;
+    display: none;
+}
+.searchTypePro{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+    text-align: right;
+}
+.searchTypePro input{
+    width: 30%;
+    padding: 6px 15px;
+    font-size: 20px;
+    outline: none;
+}
+.searchTypePro span{
+    font-size: 22px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+.editTypePro{
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+}
+.editTypePro .addTypePro{
+    padding: 10px 30px;
+    /* box-shadow: 0 0 10px #ccc; */
+    background: #F6F5F8;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: inline-block;
+}
+.editTypePro .addTypePro{
+    font-weight: bold;
+} 
+.editTypePro .boxAddTypePro{
+    padding: 10px 30px;
+    /* box-shadow: 0 0 10px #ccc; */
+    background: #F6F5F8;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: block;
+}
+.editTypePro .boxAddTypePro div{
+    width: 50%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    /* position: relative; */
+}
+.editTypePro .boxAddTypePro div input{
+    width: 80%;
+    padding: 3px 5px;
+    outline: none;
+}
+.editTypePro .boxAddTypePro div select{
+    width: 80%;
+    padding: 3px 5px;
+    outline: none;
+}
+.editTypePro .boxAddTypePro div> small{
+    position: absolute;
+    left: 52%;
 
+}
+.editTypePro .boxAddTypePro button{
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    padding: 5px 13px;
+    outline: none;
+    cursor: pointer;
+    background: var(--blue);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.editTypePro .boxAddTypePro button:hover{
+    transform: scale(1.04,1.04);
+}
+.tableTypePro{
+    width: 100%;
+    height: 340px;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+}
+.tableTypePro table{
+    display: table;
+    width: 96%;
+    height: 100%;
+    margin: 0 auto;
+}
+.tableTypePro table tr{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    
+}
+.tableTypePro table tbody{
+    height: 100%;
+    overflow-y: auto;
+    display: block;
+}
+.tableTypePro table tbody::-webkit-scrollbar{
+    width: 5px;
+    background: #F6F5F8;
+}
+.tableTypePro table tbody::-webkit-scrollbar-thumb{
+    background: #ccc;
+}
+.tableTypePro table tbody tr{
+    padding: 22px 10px;
+    border-top: 1px solid #ccc;
+}
+.tableTypePro table thead tr{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+.tableTypePro table tr td:nth-child(3){
+    text-align: right;
+}
+.tableTypePro table tr td:nth-child(2){
+    text-align: center;
+}
+.tableTypePro table tr{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
                 /* =====QL SẢN PHẨM===== */
 .mainProduct{
     position: relative;
@@ -578,10 +719,11 @@ body{
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0,0,0,0.1);
     border-radius: 20px;
+    overflow: hidden;
     /* display: none; */
 }
 .mainProduct .boxEditProduct input[type='text']{
-    width: 250px;
+    width: 65%;
 }
 .mainProduct .boxEditProduct >:nth-child(1),
 .mainProduct .boxEditProduct >:nth-child(2),
@@ -772,6 +914,7 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -860,7 +1003,7 @@ body{
     width: 90%;
     height: 320px;
     overflow-y: auto;
-    margin: 20px;
+    margin: 0 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
     grid-gap: 30px;
@@ -881,7 +1024,7 @@ body{
 }
 .cardCustomer{
     width: 200px;
-    height: 70px;
+    height: auto;
     background: var(--pink);
     padding: 10px;
     border-radius: 20px;
@@ -890,23 +1033,55 @@ body{
     margin: auto;
     
 }
-.cardCustomer:hover{
-    height: 170px;
+.extendInfo{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.extendInfo i{
+    color: var(--blue);
+}
+.address, .mail, .call{
+    color: var(--black1);
+    /* white-space: normal; */
 }
 .cardCustomer:hover .extendInfo{
-    top: 70px;
-    opacity: 100%;   
+    /* top: 70px;
+    opacity: 100%;    */
+    height: 150px;
+    
 }
 
-.cardCustomer .extendInfo .mail span{
-    width: 160px;
-    overflow: hidden;
+.cardCustomer .extendInfo .mail span,.cardCustomer .extendInfo .address span{
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word; 
+    max-height: 50px;
 }
-.changeSize{
-    font-size: 12px;
+
+.cardCustomer .extendInfo .address span::-webkit-scrollbar,
+.cardCustomer .extendInfo .mail span::-webkit-scrollbar{
+    display: none;
 }
+.detailMail{
+    display: none;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    font-size: 0.7rem;
+    width: 130px;
+    word-wrap: break-word;
+    
+}
+
+
+
 .cardCustomer .extendInfo .mail, .cardCustomer .extendInfo .address{
     display: flex;
+
 }
 .cardCustomer .extendInfo .mail i, .cardCustomer .extendInfo .address i{
     transform: translateY(2px);
@@ -936,21 +1111,7 @@ body{
 .cardCustomer .mainNameCus span div{
     font-size: 14px;
 }
-.extendInfo{
-    margin-left: 5px;
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    transition: 0.7s;
-}
-.extendInfo i{
-    color: var(--blue);
-}
-.address, .mail, .call{
-    color: var(--black1);
-    /* white-space: normal; */
-    margin-bottom: 15px;
-}
+
                 /* =====THỐNG KÊ===== */
 
 

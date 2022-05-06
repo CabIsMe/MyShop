@@ -106,14 +106,22 @@ login.addEventListener('click',function(){
 // End of Product Management
 
 // Customer Managerment
-    mailCustomer=document.querySelectorAll('.cardCustomer .extendInfo .mail span')
+    mailCustomer=document.querySelectorAll('.cardCustomer .extendInfo .mail')
+    spanMailCustomer=document.querySelectorAll('.cardCustomer .extendInfo .mail span')
+    let demMail=0
     addressCustome=document.querySelectorAll('.cardCustomer .extendInfo .address span')
-    for(let i=0;i< mailCustomer.length; i++){
-        // if(mailCustomer[i].clientWidth > '160px'){
-        //     // mailCustomer.classList.add('changeSize')
-        //     console.log()
-        // }
-        console.log("cd"+ mailCustomer[i].style.width)
+    for(let i=0; i<mailCustomer.length; i++){
+        // document.querySelectorAll('.detailMail')[i].style.display=none
+        // mailCustomer[i].addEventListener('mouseover',function(){
+        //     demMail++
+        //     if(demMail%2!=0){
+        //         // document.querySelectorAll('.detailMail')[i].innerText=spanMailCustomer[i].innerText
+        //     }
+        //     else{
+        //         document.querySelectorAll('.detailMail')[i].innerText=''
+        //     }
+        // })
+        
     }
 // End o fCustomer Managerment
 
@@ -123,26 +131,33 @@ login.addEventListener('click',function(){
     let mainCustomerManagement=document.querySelector('.mainCM')
     let mainProduct=document.querySelector('.mainProduct')
     let mainOrder=document.querySelector('.mainOrder')
+    let mainTypeProduct=document.querySelector('.mainTypeProduct')
     for(let i=0; i<listMenu.length; i++){
-        listMenu[i].addEventListener('mouseover',function(){
-            if(i==4){
+        listMenu[i].addEventListener('click',function(){
+            if(i==5){
                 mainStatistical.style.display='block'    
             }
             else{
                 mainStatistical.style.display='none'
             }
-            if(i==3){
+            if(i==4){
                 mainCustomerManagement.style.display='flex'
                 
             }
             else{
                 mainCustomerManagement.style.display='none'
             }
-            if(i==2){
+            if(i==3){
                 mainProduct.style.display='block'
             }
             else{
                 mainProduct.style.display='none'
+            }
+            if(i==2){
+                mainTypeProduct.style.display='block'
+            }
+            else{
+                mainTypeProduct.style.display='none'
             }
             if(i==1){
                 mainOrder.style.display='block'
