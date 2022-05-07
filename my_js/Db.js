@@ -90,18 +90,27 @@ login.addEventListener('click',function(){
         //     })
         // }
     })
-    let inputSearchProduct=document.querySelector('.searchProduct_Input input')
-    let iconSearchProduct=document.querySelector('.searchProduct_Icon i')
-
-    iconSearchProduct.addEventListener('click',function(){
-        iconSearchProduct.style.right=0
-        inputSearchProduct.style.width='300px'
-    })
+    let inputSearchProduct=document.querySelector('.searchProduct input')
+    let iconSearchProduct=document.querySelectorAll('.mainProduct .topMainProduct .searchProduct span')
+    let demHoverSearchQLSP=0
+    for(let i=0; i<iconSearchProduct.length; i++){
+        iconSearchProduct[i].addEventListener('mouseenter',function(){
+            document.querySelector('.mainProduct .topMainProduct .searchProduct span:first-child').style.width='60%'
+        })
+        iconSearchProduct[i].addEventListener('mouseleave',function(){
+            if(demHoverSearchQLSP==0){
+                document.querySelector('.mainProduct .topMainProduct .searchProduct span:first-child').style.width='0'
+            }
+        })
+    }
+    // iconSearchProduct.addEventListener('click',function(){
+    //     iconSearchProduct.style.right=0
+    //     inputSearchProduct.style.width='300px'
+    // })
     inputSearchProduct.addEventListener('keypress',function(){
-        iconSearchProduct.style.right=0
-        inputSearchProduct.style.width='300px'
-        
+        demHoverSearchQLSP=1
     })
+    
 
 // End of Product Management
 
@@ -111,16 +120,6 @@ login.addEventListener('click',function(){
     let demMail=0
     addressCustome=document.querySelectorAll('.cardCustomer .extendInfo .address span')
     for(let i=0; i<mailCustomer.length; i++){
-        // document.querySelectorAll('.detailMail')[i].style.display=none
-        // mailCustomer[i].addEventListener('mouseover',function(){
-        //     demMail++
-        //     if(demMail%2!=0){
-        //         // document.querySelectorAll('.detailMail')[i].innerText=spanMailCustomer[i].innerText
-        //     }
-        //     else{
-        //         document.querySelectorAll('.detailMail')[i].innerText=''
-        //     }
-        // })
         
     }
 // End o fCustomer Managerment
